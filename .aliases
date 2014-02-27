@@ -1,0 +1,34 @@
+alias sublime='subl'
+alias ls='ls -Fh'
+alias c='clear'
+alias h='history'
+alias rm='rm -i'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias -- -='cd -'
+alias sl='ls'
+alias docs='cd ~/Documents'
+alias dev='cd ~/Development'
+alias dl='cd ~/Downloads'
+alias clean='rm -f *~'
+alias other='mv /Volumes/CODY1T/Movies/.Other /Volumes/CODY1T/Movies/Other'
+alias .other='mv /Volumes/CODY1T/Movies/Other /Volumes/CODY1T/Movies/.Other'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date' | grep real
+
+# Lock the screen
+alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
+# Reload the shell
+alias reload='exec $SHELL -l'
+
+# Colorize and number grep
+export GREP_OPTIONS="-n --color"
+
+# Colorize ls
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
