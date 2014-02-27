@@ -1,6 +1,6 @@
 rc iles
 ==========
-.vimrc file - configurations I use for vim
+.vimrc file => configurations I use for vim
 
 .bashrc => loads aliases and profiles
 
