@@ -1,4 +1,4 @@
-rc iles
+.rc Files
 ==========
 .vimrc file => configurations I use for vim
 
