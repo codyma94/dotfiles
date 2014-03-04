@@ -1,3 +1,8 @@
+" load plugins via pathogen
+call pathogen#infect()
+call pathogen#incubate()
+call pathogen#helptags()
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -6,9 +11,20 @@ endif
 " use Vim settings
 set nocompatible
 
+" time to wait after ESC (default has an annoying delay)
+set timeoutlen=250
+
+" yanks to system clipboard
+set clipboard+=unnamed
+
 " configure backspace so it acts as it should act
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
+
+" set line width
+set wrap
+set textwidth=79
+set formatoptions=qrn1
 
 " ignore case when searching
 set ignorecase
@@ -21,6 +37,9 @@ set showmatch
 
 " how many tenths of a second to blink when matching brackets
 set mat=2
+
+" set replace all as default
+set gdefault
 
 " no annoying error sound on errors
 set noerrorbells visualbell t_vb=
@@ -36,6 +55,18 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
+" set encoding
+set encoding=utf-8
+
+" turn filetype detection on for plugins
+filetype plugin on
+
+" show how far away each line is from your current line
+set relativenumber
+
+" always set autoindenting on
+set autoindent
+
 " always show the status line
 " set laststatus=2
 
@@ -45,6 +76,22 @@ set tabstop=2
 " remove the windows ^M when encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
+" solarized coloring
+ syntax enable
+ set background=light
+ let g:solarized_termtrans=1
+ let g:solarized_termcolors=256
+ let g:solarized_contrast="high"
+ let g:solarized_visibility="high"
+ colorscheme solarized
+
+" Gundo keybindings
+noremap <F5> :GundoToggle<CR>
+
+" only load closetag on html/xml like files
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
 " fix typos
 :command WQ wq
 :command Wq wq
@@ -52,84 +99,14 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 :command Q q
 :command QW wq
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
+" create backup files
+set backup
+
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set number
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set hlsearch
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-" Returns true if paste mode is enabled
-function! HasPaste()
-  if &paste
-    return 'PASTE MODE  '
-  en
-  return ''
-endfunction
+filetype plugin indent on
