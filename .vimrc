@@ -1,15 +1,16 @@
+filetype off
 " load plugins via pathogen
 call pathogen#infect()
 call pathogen#incubate()
-call pathogen#helptags()
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
 
 " use Vim settings
 set nocompatible
+
+" for plugins
+filetype plugin indent on
+
+" turn filetype detection on for plugins
+filetype plugin on
 
 " time to wait after ESC (default has an annoying delay)
 set timeoutlen=250
@@ -58,12 +59,6 @@ set tabstop=2
 " set encoding
 set encoding=utf-8
 
-" turn filetype detection on for plugins
-filetype plugin on
-
-" show how far away each line is from your current line
-set relativenumber
-
 " always set autoindenting on
 set autoindent
 
@@ -104,9 +99,28 @@ set backup
 
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
-set number
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set hlsearch
 
-filetype plugin indent on
+
+" relative and absolute numbering stuff 
+function! NumberToggle()
+  if(&relativenumber==1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+" toggle normal line numbers with relative line numbers
+nnoremap<C-n> :call NumberToggle()<cr>
+
+" set <leader> to comma
+let mapleader = ","
+
+" vertical split new window with <leader>w
+nnoremap <leader>w <C-w>v<C-w>l
+
+" exit insert mode with jj 
+:imap jj <Esc>
