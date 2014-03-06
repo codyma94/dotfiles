@@ -42,6 +42,9 @@ set mat=2
 " set replace all as default
 set gdefault
 
+" set relative numbers as default
+set relativenumber
+
 " no annoying error sound on errors
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -122,5 +125,15 @@ let mapleader = ","
 " vertical split new window with <leader>w
 nnoremap <leader>w <C-w>v<C-w>l
 
+" start ack with <leader>a
+nnoremap <leader>a :Ack
+
 " exit insert mode with jj 
 :imap jj <Esc>
+
+" Rainbow parens always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
