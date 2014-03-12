@@ -1,4 +1,3 @@
-filetype off
 " load plugins via pathogen
 call pathogen#infect()
 call pathogen#incubate()
@@ -6,11 +5,11 @@ call pathogen#incubate()
 " use Vim settings
 set nocompatible
 
-" for plugins
-filetype plugin indent on
-
 " turn filetype detection on for plugins
 filetype plugin on
+
+" filetype indenting
+filetype indent on
 
 " time to wait after ESC (default has an annoying delay)
 set timeoutlen=250
@@ -106,7 +105,6 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set hlsearch
 
-
 " relative and absolute numbering stuff 
 function! NumberToggle()
   if(&relativenumber==1)
@@ -123,7 +121,7 @@ nnoremap<C-n> :call NumberToggle()<cr>
 let mapleader = ","
 
 " vertical split new window with <leader>w
-nnoremap <leader>w <C-w>v<C-w>l
+" nnoremap <leader>w <C-w>v<C-w>l
 
 " start ack with <leader>a
 nnoremap <leader>a :Ack
@@ -131,9 +129,14 @@ nnoremap <leader>a :Ack
 " exit insert mode with jj 
 :imap jj <Esc>
 
+" put cursor at previous position
+autocmd BufReadPost * exe "normal! g`\""
+
 " Rainbow parens always on
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" open NERDTree
+nnoremap <Leader>n :NERDTreeToggle<CR>
