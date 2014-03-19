@@ -1,0 +1,18 @@
+[user]
+	name = Cody Ma
+	email = cody_ma@brown.edu
+[alias]
+  a = add -A
+  br = branch
+  ci = commit
+	co = checkout
+  last = log -l HEAD
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  p = push
+  st = status
+[core]
+	editor = vim
+[push]
+	default = simple
+[github]
+  user = codyma94
