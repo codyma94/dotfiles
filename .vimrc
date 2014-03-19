@@ -139,4 +139,4 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " open NERDTree
-nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeTabsToggle<CR>
