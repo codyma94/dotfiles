@@ -1,6 +1,6 @@
 " load plugins via pathogen
 call pathogen#infect()
-call pathogen#incubate()
+call pathogen#interpose('bundle/{}')
 
 " use Vim settings
 set nocompatible
