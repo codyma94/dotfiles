@@ -96,6 +96,13 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 :command Q q
 :command QW wq
 
+" map 0 to first nonblank character
+map 0 ^
+
+" treat long lines as break lines
+map j gj
+map k gk
+
 " create backup files
 set backup
 
@@ -120,8 +127,14 @@ nnoremap<C-n> :call NumberToggle()<cr>
 " set <leader> to comma
 let mapleader = ","
 
-" vertical split new window with <leader>w
-" nnoremap <leader>w <C-w>v<C-w>l
+" vertical split new window with <leader>v
+nnoremap <leader>v <C-w>v<C-w>l
+
+" save with <leader>w
+nnoremap <leader>w :w<CR>
+
+" save and quit with <leader>wq
+nnoremap <leader>wq :wq<CR>
 
 " start ack with <leader>a
 nnoremap <leader>a :Ack
