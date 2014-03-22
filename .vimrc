@@ -127,14 +127,11 @@ nnoremap<C-n> :call NumberToggle()<cr>
 " set <leader> to comma
 let mapleader = ","
 
+"set ; to do :
+nnoremap ; :
+
 " vertical split new window with <leader>v
-nnoremap <leader>v <C-w>v<C-w>l
-
-" save with <leader>w
-nnoremap <leader>w :w<CR>
-
-" save and quit with <leader>wq
-nnoremap <leader>wq :wq<CR>
+nnoremap <leader>v :vsp 
 
 " start ack with <leader>a
 nnoremap <leader>a :Ack
@@ -153,3 +150,9 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " open NERDTree
 nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+
+" move around windows easily
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
