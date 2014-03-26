@@ -17,7 +17,7 @@ alias dl='cd ~/Downloads'
 alias clean='rm -f *~ .*~ *.class'
 alias other='mv /Volumes/CODY1T/Movies/.Other /Volumes/CODY1T/Movies/Other'
 alias .other='mv /Volumes/CODY1T/Movies/Other /Volumes/CODY1T/Movies/.Other'
-alias 195='cd ~/Documents/sophomore/cs1951a/hw03'
+alias 195='cd ~/Documents/sophomore/cs1951a/hw4'
 alias 166='cd ~/Documents/sophomore/cs166'
 
 # Lock the screen
