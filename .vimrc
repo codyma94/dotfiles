@@ -69,10 +69,19 @@ set encoding=utf-8
 set autoindent
 
 " always show the status line
- set laststatus=2
+set laststatus=2
 
 " format the status line
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=%F "full file path"
+set statusline+=[%{&ff}] "file format
+set statusline+=%h "help file flag
+set statusline+=%m "modified flag
+set statusline+=%r "read only flag
+set statusline+=%y "filetype
+set statusline+=%= "left/right separator
+set statusline+=%c, "cursor column
+set statusline+=%l/%L "cursor line/total lines
+set statusline+=\ %P " percent through file"
 
 " remove the windows ^M when encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
