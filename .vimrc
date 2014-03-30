@@ -11,6 +11,10 @@ filetype plugin on
 " filetype indenting
 filetype indent on
 
+" set backup directory 
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
 " time to wait after ESC (default has an annoying delay)
 set timeoutlen=250
 
@@ -65,7 +69,7 @@ set encoding=utf-8
 set autoindent
 
 " always show the status line
-" set laststatus=2
+ set laststatus=2
 
 " format the status line
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
@@ -104,7 +108,7 @@ map j gj
 map k gk
 
 " create backup files
-set backup
+" set backup
 
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
