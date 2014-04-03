@@ -73,7 +73,7 @@ set laststatus=2
 
 " format the status line
 set statusline=%F "full file path"
-set statusline+=[%{&ff}] "file format
+"set statusline+=[%{&ff}] "file format
 set statusline+=%h "help file flag
 set statusline+=%m "modified flag
 set statusline+=%r "read only flag
