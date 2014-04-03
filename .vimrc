@@ -25,6 +25,10 @@ set clipboard+=unnamed
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 
+" mouse stuff
+set mouse=a
+" set ttymouse=xterm
+
 " set line width
 set wrap
 set textwidth=79
