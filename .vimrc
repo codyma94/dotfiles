@@ -27,7 +27,7 @@ set whichwrap+=<,>,h,l
 
 " mouse stuff
 set mouse=a
-" set ttymouse=xterm
+set ttymouse=xterm
 
 " set line width
 set wrap
@@ -99,8 +99,6 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
  let g:solarized_visibility="high"
  colorscheme solarized
 
-" Gundo keybindings
-noremap <F5> :GundoToggle<CR>
 
 " only load closetag on html/xml like files
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
@@ -139,7 +137,7 @@ function! NumberToggle()
 endfunc
 
 " toggle normal line numbers with relative line numbers
-nnoremap<C-n> :call NumberToggle()<cr>
+nnoremap<C-n> :call NumberToggle()<CR>
 
 " set <leader> to comma
 let mapleader = ","
@@ -153,6 +151,12 @@ nnoremap <leader>v :vsp
 " start ack with <leader>a
 nnoremap <leader>a :Ack
 
+" toggle spellcheck
+nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
+
+" Gundo keybindings
+nnoremap <leader>g :GundoToggle<CR>
+"
 " exit insert mode with jj 
 :imap jj <Esc>
 
