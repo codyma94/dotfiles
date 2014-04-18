@@ -87,8 +87,8 @@ set statusline+=%c, "cursor column
 set statusline+=%l/%L "cursor line/total lines
 set statusline+=\ %P " percent through file"
 
-" remove the windows ^M when encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+" make bang commands work properly
+set shellcmdflag=-ic
 
 " solarized coloring
  syntax enable
@@ -98,7 +98,6 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
  let g:solarized_contrast="high"
  let g:solarized_visibility="high"
  colorscheme solarized
-
 
 " only load closetag on html/xml like files
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
