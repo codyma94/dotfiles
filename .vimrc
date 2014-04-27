@@ -87,17 +87,17 @@ set statusline+=%c, "cursor column
 set statusline+=%l/%L "cursor line/total lines
 set statusline+=\ %P " percent through file"
 
-" make bang commands work properly
-set shellcmdflag=-ic
+" make shell commands work properly
+" set shellcmdflag=-i
 
 " solarized coloring
- syntax enable
- set background=light
- let g:solarized_termtrans=1
- let g:solarized_termcolors=256
- let g:solarized_contrast="high"
- let g:solarized_visibility="high"
- colorscheme solarized
+syntax enable
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
 
 " only load closetag on html/xml like files
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
@@ -160,13 +160,13 @@ nnoremap <leader>g :GundoToggle<CR>
 autocmd BufReadPost * exe "normal! g`\""
 
 " Rainbow parens always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " open NERDTree
-nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+" nnoremap <Leader>n :NERDTreeTabsToggle<CR>
 
 " move around windows easily
 nnoremap <C-h> <C-w>h
