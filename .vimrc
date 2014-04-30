@@ -160,13 +160,13 @@ nnoremap <leader>g :GundoToggle<CR>
 autocmd BufReadPost * exe "normal! g`\""
 
 " Rainbow parens always on
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " open NERDTree
-" nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+nnoremap <Leader>n :NERDTreeTabsToggle<CR>
 
 " move around windows easily
 nnoremap <C-h> <C-w>h
