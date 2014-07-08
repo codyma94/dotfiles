@@ -1,6 +1,31 @@
-" load plugins via pathogen
-call pathogen#infect()
-call pathogen#interpose('bundle/{}')
+set nocompatible
+filetype off
+set rtp +=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" plugins
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-surround'
+Bundle 'mileszs/ack.vim'
+Bundle 'Valloric/MatchTagAlways'
+Bundle 'vim-scripts/closetag.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'derekwyatt/vim-scala'
+
+" color schemes
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
+Bundle 'morhetz/gruvbox'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'w0ng/vim-hybrid'
+Bundle 'chriskempson/base16-vim'
 
 " turn filetype detection on for plugins
 filetype plugin on
@@ -8,11 +33,11 @@ filetype plugin on
 " filetype indenting
 filetype indent on
 
-" use Vim settings
-set nocompatible
-
 " set encoding
 set encoding=utf-8
+
+" syntax highlighting
+syntax enable
 
 " no annoying error sound on errors
 set noerrorbells visualbell t_vb=
@@ -108,7 +133,7 @@ endfunc
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " Custom mappings                             "
-" """""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""
 " set <leader> to comma
 let mapleader = ","
 
@@ -152,24 +177,24 @@ nnoremap <leader>f :FixWhitespace<CR>
 """""""""""""""""""""""""""""""""""""""""""""""
 " Plugins                                     "
 """""""""""""""""""""""""""""""""""""""""""""""
-" solarized coloring
-syntax enable
 set background=dark
+
+" solarized settings
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-colorscheme solarized
+
+" gruvbox settings
+let g:gruvbox_termcolors=256
+
+
+" select colorscheme
+colorscheme gruvbox
 
 " only load closetag on html/xml like files
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
-
-" Rainbow parens always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " System dependent                            "
