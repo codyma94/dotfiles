@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'mileszs/ack.vim'
 Bundle 'Valloric/MatchTagAlways'
-Bundle 'vim-scripts/closetag.vim'
+Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdcommenter'
@@ -122,15 +122,6 @@ set statusline+=\ %P " percent through file"
 :command Q q
 :command QW wq
 
-" toggle relative and fixed numbering
-function! NumberToggle()
-  if(&relativenumber==1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
 """""""""""""""""""""""""""""""""""""""""""""""
 " Custom mappings                             "
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -159,23 +150,40 @@ map 0 ^
 " toggle normal line numbers with relative line numbers
 nnoremap<C-n> :call NumberToggle()<CR>
 
-" open NERDTree
-nnoremap <leader>n :NERDTreeTabsToggle<CR>
-
-" vertical split new window with <leader>v
-nnoremap <leader>v :vsp
-
 " start ack with <leader>a
 nnoremap <leader>a :Ack
-
-" toggle spellcheck
-nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " Fix extra whitespace
 nnoremap <leader>f :FixWhitespace<CR>
 
+" open NERDTree
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
+" paste mode
+set pastetoggle=<leader>p
+
+" toggle spellcheck
+nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
+
+" vertical split new window with <leader>v
+nnoremap <leader>v :vsp
+
+"clear highlighted search
+nmap <silent> ,/ :nohlsearch<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""
-" Plugins                                     "
+" Function Defn's                             "
+""""""""""""""""""""""""""""""""""""""""""""""
+function! NumberToggle()
+  if(&relativenumber==1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+"""""""""""""""""""""""""""""""""""""""""""""""
+" Coloring                                    "
 """""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 
@@ -188,23 +196,11 @@ let g:solarized_visibility="high"
 " gruvbox settings
 let g:gruvbox_termcolors=256
 
-
 " select colorscheme
 colorscheme gruvbox
-
-" only load closetag on html/xml like files
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " System dependent                            "
 """""""""""""""""""""""""""""""""""""""""""""""
-" mouse stuff
-"set mouse=a
-"set ttymouse=xterm
-
 " make shell commands work properly - only works on bash
-" set shellcmdflag=-i
-
-" yanks to system clipboard
-"set clipboard+=unnamed
+" set shell=zsh\ -i

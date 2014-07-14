@@ -18,14 +18,8 @@ alias dl='cd ~/Downloads'
 alias clean='rm -f *~ .*~ *.class'
 alias other='mv /Volumes/CODY1T/Movies/.Other /Volumes/CODY1T/Movies/Other'
 alias .other='mv /Volumes/CODY1T/Movies/Other /Volumes/CODY1T/Movies/.Other'
-alias 195='cd ~/Documents/sophomore/cs1951a'
-alias 166='cd ~/Documents/sophomore/cs166'
-
-2pdf() {
-  first_arg=$1
-  /usr/texbin/pdflatex $first_arg;
-  open ${first_arg:0:${#first_arg}-3}"pdf";
-}
+alias vim='mvim -v'
+alias mvim='mvim -v'
 
 # Lock the screen
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
