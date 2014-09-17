@@ -171,16 +171,20 @@ nnoremap <leader>v :vsp
 "clear highlighted search
 nmap <silent> ,/ :nohlsearch<CR>
 
+" set line numbering
+set number
+set relativenumber
+
 """""""""""""""""""""""""""""""""""""""""""""""
 " Function Defn's                             "
 """"""""""""""""""""""""""""""""""""""""""""""
-function! NumberToggle()
-  if(&relativenumber==1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
+"function! NumberToggle()
+  "if(&relativenumber==1)
+    "set number
+  "else
+    "set relativenumber
+  "endif
+"endfunc
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " Coloring                                    "

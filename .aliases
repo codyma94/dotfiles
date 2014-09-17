@@ -20,6 +20,8 @@ alias other='mv /Volumes/CODY1T/Movies/.Other /Volumes/CODY1T/Movies/Other'
 alias .other='mv /Volumes/CODY1T/Movies/Other /Volumes/CODY1T/Movies/.Other'
 alias vim='mvim -v'
 alias mvim='mvim -v'
+alias ccat='pygmentize -g'
+alias 157='cd ~/Documents/junior/cs157'
 
 # Lock the screen
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
