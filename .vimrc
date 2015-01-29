@@ -25,7 +25,6 @@ Bundle 'tomasr/molokai'
 Bundle 'morhetz/gruvbox'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'w0ng/vim-hybrid'
-Bundle 'chriskempson/base16-vim'
 
 " turn filetype detection on for plugins
 filetype plugin on
@@ -54,7 +53,7 @@ autocmd BufReadPost * exe "normal! g`\""
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 
-" keep 50 lines of command line history
+" keep 500 lines of command line history
 set history=500
 
 " show the cursor position all the time
@@ -131,8 +130,11 @@ let mapleader = ","
 "set ; to do :
 nnoremap ; :
 
-" exit insert mode with jj
+" exit insert mode
 imap jj <Esc>
+
+" exit insert mode and save
+imap jk <Esc> :w<CR>
 
 " treat long lines as break lines
 map j gj
@@ -178,13 +180,13 @@ set relativenumber
 """""""""""""""""""""""""""""""""""""""""""""""
 " Function Defn's                             "
 """"""""""""""""""""""""""""""""""""""""""""""
-"function! NumberToggle()
-  "if(&relativenumber==1)
-    "set number
-  "else
-    "set relativenumber
-  "endif
-"endfunc
+function! NumberToggle()
+  if(&relativenumber==1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " Coloring                                    "
