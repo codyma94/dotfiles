@@ -18,6 +18,7 @@ Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " color schemes
 Bundle 'altercation/vim-colors-solarized'
@@ -127,8 +128,9 @@ set statusline+=\ %P " percent through file"
 " set <leader> to comma
 let mapleader = ","
 
-"set ; to do :
+" swap ; and :
 nnoremap ; :
+nnoremap : ;
 
 " exit insert mode
 imap jj <Esc>
@@ -177,6 +179,9 @@ nmap <silent> ,/ :nohlsearch<CR>
 set number
 set relativenumber
 
+" mouse scroll
+set mouse=a
+
 """""""""""""""""""""""""""""""""""""""""""""""
 " Function Defn's                             "
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -200,7 +205,8 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
 " gruvbox settings
-let g:gruvbox_termcolors=256
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 
 " select colorscheme
 colorscheme gruvbox
