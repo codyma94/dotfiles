@@ -101,7 +101,7 @@ set gdefault
 set relativenumber
 
 " start scrolling before cursor reaches the edge
-set scrolloff=3
+set scrolloff=4
 
 " format the status line
 set laststatus=2
@@ -136,7 +136,7 @@ nnoremap : ;
 imap jj <Esc>
 
 " exit insert mode and save
-imap jk <Esc> :w<CR>
+"imap jk <Esc> :w<CR>
 
 " treat long lines as break lines
 map j gj
@@ -211,8 +211,6 @@ let &t_ZR="\e[23m"
 " select colorscheme
 colorscheme gruvbox
 
-"""""""""""""""""""""""""""""""""""""""""""""""
-" System dependent                            "
-"""""""""""""""""""""""""""""""""""""""""""""""
-" make shell commands work properly - only works on bash
-" set shell=zsh\ -i
+" autocmds
+au FileType tex :NoMatchParen
+au FileType tex set norelativenumber
