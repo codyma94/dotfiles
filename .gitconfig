@@ -3,13 +3,13 @@
 	email = cody_ma@brown.edu
 [alias]
   a = add -A
-  br = branch
+  b = branch
   ci = commit
 	co = checkout
   last = log -l HEAD
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
   p = push
-  st = status
+  s = status
 [core]
 	editor = vim
 [push]

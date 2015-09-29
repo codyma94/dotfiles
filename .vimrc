@@ -6,10 +6,9 @@ call vundle#rc()
 " plugins
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'Valloric/MatchTagAlways'
 Bundle 'docunext/closetag.vim'
-Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -19,6 +18,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'easymotion/vim-easymotion'
+Bundle 'tpope/vim-repeat'
+Bundle 'sjl/gundo.vim'
 
 " color schemes
 Bundle 'altercation/vim-colors-solarized'
@@ -38,6 +40,9 @@ set encoding=utf-8
 
 " syntax highlighting
 syntax enable
+
+" copy to system clipboard
+set clipboard=unnamed
 
 " no annoying error sound on errors
 set noerrorbells visualbell t_vb=
@@ -121,6 +126,7 @@ set statusline+=\ %P " percent through file"
 :command W w
 :command Q q
 :command QW wq
+cnoreabbrev ag Ag!
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " Custom mappings                             "
@@ -133,10 +139,7 @@ nnoremap ; :
 nnoremap : ;
 
 " exit insert mode
-imap jj <Esc>
-
-" exit insert mode and save
-"imap jk <Esc> :w<CR>
+inoremap jj <Esc>
 
 " treat long lines as break lines
 map j gj
@@ -154,14 +157,18 @@ map 0 ^
 " toggle normal line numbers with relative line numbers
 nnoremap<C-n> :call NumberToggle()<CR>
 
-" start ack with <leader>a
-nnoremap <leader>a :Ack
-
 " Fix extra whitespace
 nnoremap <leader>f :FixWhitespace<CR>
 
+" Gundo
+nnoremap <leader>g :GundoToggle <CR>
+
 " open NERDTree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
+" Ag
+nnoremap <leader>p :Ag
+
 
 " paste mode
 set pastetoggle=<leader>p
@@ -185,13 +192,6 @@ set mouse=a
 """""""""""""""""""""""""""""""""""""""""""""""
 " Function Defn's                             "
 """"""""""""""""""""""""""""""""""""""""""""""
-function! NumberToggle()
-  if(&relativenumber==1)
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunc
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " Coloring                                    "

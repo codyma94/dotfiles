@@ -17,6 +17,10 @@ if [[ -f ~/.profile ]]; then
   source ~/.profile
 fi
 
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi
+
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
