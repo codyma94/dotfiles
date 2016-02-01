@@ -44,7 +44,6 @@ func OpenListener() (net.Listener, int, error) {
 	return conn, port, err
 }
 
-// Listens on a random port in the defined ephemeral range, retries if port is already in use.
 // Returns a TCPListener type (instead of a generic net.Listener).
 func OpenTCPListener() (*net.TCPListener, int, error) {
 	rand.Seed(time.Now().UTC().UnixNano())
@@ -54,12 +53,12 @@ func OpenTCPListener() (*net.TCPListener, int, error) {
 		return nil, -1, err
 	}
 
-	addr, err := net.ResolveTCPAddr("tcp4", fmt.Sprintf("%v:%v", hostname, port))
-	if err != nil {
-		return nil, -1, err
+	addr := fmt.Sprintf("%v:%v", hostname, port)
+	conn, err := net.Listen("tcp4", addr)
+	var tcpconn *net.TCPListener
+	if conn != nil {
+		tcpconn = (conn.(*net.TCPListener))
 	}
-
-	conn, err := net.ListenTCP("tcp4", addr)
 	if err != nil {
 		if addrInUse(err) {
 			time.Sleep(100 * time.Millisecond)
@@ -68,7 +67,7 @@ func OpenTCPListener() (*net.TCPListener, int, error) {
 			return nil, -1, err
 		}
 	}
-	return conn, port, err
+	return tcpconn, port, err
 }
 
 func addrInUse(err error) bool {
