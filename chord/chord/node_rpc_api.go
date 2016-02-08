@@ -255,6 +255,7 @@ func makeRemoteCall(remoteNode *RemoteNode, method string, req interface{}, rsp 
 	if !ok {
 		client, err = rpc.Dial("tcp", remoteNode.Addr)
 		if err != nil {
+			connMapMutex.Unlock()
 			return err
 		}
 		connMap[remoteNodeAddrStr] = client
