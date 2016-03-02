@@ -1,33 +1,38 @@
-set nocompatible
-filetype off
-set rtp +=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin()
 
 " plugins
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-surround'
-Bundle 'rking/ag.vim'
-Bundle 'Valloric/MatchTagAlways'
-Bundle 'docunext/closetag.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'easymotion/vim-easymotion'
-Bundle 'tpope/vim-repeat'
-Bundle 'sjl/gundo.vim'
+Plug 'gmarik/vundle'
+Plug 'tpope/vim-surround'
+Plug 'rking/ag.vim'
+Plug 'Valloric/MatchTagAlways'
+Plug 'docunext/closetag.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'derekwyatt/vim-scala'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-repeat'
+Plug 'sjl/gundo.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go'
 
 " color schemes
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
-Bundle 'morhetz/gruvbox'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'w0ng/vim-hybrid'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'w0ng/vim-hybrid'
+
+call plug#end()
+
+" don't need compatibility with vi
+set nocompatible
 
 " turn filetype detection on for plugins
 filetype plugin on
@@ -102,9 +107,6 @@ set mat=2
 " set replace all as default
 set gdefault
 
-" set relative numbers
-set relativenumber
-
 " start scrolling before cursor reaches the edge
 set scrolloff=4
 
@@ -154,9 +156,6 @@ nnoremap <C-l> <C-w>l
 " map 0 to first nonblank character
 map 0 ^
 
-" toggle normal line numbers with relative line numbers
-nnoremap<C-n> :call NumberToggle()<CR>
-
 " Fix extra whitespace
 nnoremap <leader>f :FixWhitespace<CR>
 
@@ -184,7 +183,6 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 " set line numbering
 set number
-set relativenumber
 
 " mouse scroll
 set mouse=a
@@ -211,6 +209,29 @@ let &t_ZR="\e[23m"
 " select colorscheme
 colorscheme gruvbox
 
+" syntastic settings
+let g:syntastic_html_tidy_ignore_errors = [
+    \  'plain text isn''t allowed in <head> elements',
+    \  '<base> escaping malformed URI reference',
+    \  'discarding unexpected <body>',
+    \  '<script> escaping malformed URI reference',
+    \  '</head> isn''t allowed in <body> elements'
+    \ ]
+
+" vim-go settings
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
 " autocmds
 au FileType tex :NoMatchParen
 au FileType tex set norelativenumber
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>i <Plug>(go-info)
