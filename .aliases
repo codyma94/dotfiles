@@ -1,4 +1,3 @@
-alias sublime='subl'
 alias ls='ls -Fh'
 alias c='clear'
 alias h='history'
@@ -15,23 +14,19 @@ alias sl='ls'
 alias dev='cd ~/Development'
 alias dl='cd ~/Downloads'
 alias clean='rm -f *~'
+alias vim='mvim -v'
 alias other='mv /Volumes/CODY1T/Movies/.Other /Volumes/CODY1T/Movies/Other'
 alias .other='mv /Volumes/CODY1T/Movies/Other /Volumes/CODY1T/Movies/.Other'
-alias vim='mvim'
-alias mvim='mvim -v'
 alias ccat='pygmentize -g'
 alias tmux='TERM=screen-256color-bce tmux'
-alias 141='cd ~/Documents/senior/cs141/search'
+alias 138='cd ~/Documents/senior/cs138/'
+alias chord='cd ~/Documents/senior/cs138/s16-codyma-jw/chord'
+alias tap='cd ~/Documents/senior/cs138/s16-codyma-mgurule/tapestry'
+alias raft='cd ~/Documents/senior/cs138/s16-codyma-mgurule/raft'
+alias puddle='cd ~/Documents/senior/cs138/s16-codyma-mgurule/puddlestore'
 
 # Lock the screen
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 # Reload the shell
 alias reload='exec $SHELL -l'
-
-# Colorize and number grep
-export GREP_OPTIONS="-n --color"
-
-# Colorize ls
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad

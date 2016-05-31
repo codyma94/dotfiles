@@ -13,16 +13,14 @@ if [[ -f ~/.aliases ]]; then
 fi
 
 # Load env vars
-if [[ -f ~/.profile ]]; then
-  source ~/.profile
+if [[ -f ~/.zsh_profile ]]; then
+  source ~/.zsh_profile
 fi
 
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
+# Load fzf
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"

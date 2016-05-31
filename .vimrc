@@ -13,12 +13,9 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'derekwyatt/vim-scala'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-repeat'
-Plug 'sjl/gundo.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 
@@ -208,6 +205,9 @@ let &t_ZR="\e[23m"
 
 " select colorscheme
 colorscheme gruvbox
+
+" ctrlp binding
+let g:ctrlp_map = '<c-p>'
 
 " syntastic settings
 let g:syntastic_html_tidy_ignore_errors = [
