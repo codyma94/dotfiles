@@ -11,22 +11,14 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias -- -='cd -'
 alias sl='ls'
+alias be='bundle exec'
 alias dev='cd ~/Development'
 alias dl='cd ~/Downloads'
-alias clean='rm -f *~'
-alias vim='mvim -v'
 alias other='mv /Volumes/CODY1T/Movies/.Other /Volumes/CODY1T/Movies/Other'
 alias .other='mv /Volumes/CODY1T/Movies/Other /Volumes/CODY1T/Movies/.Other'
-alias ccat='pygmentize -g'
-alias tmux='TERM=screen-256color-bce tmux'
-alias 138='cd ~/Documents/senior/cs138/'
-alias chord='cd ~/Documents/senior/cs138/s16-codyma-jw/chord'
-alias tap='cd ~/Documents/senior/cs138/s16-codyma-mgurule/tapestry'
-alias raft='cd ~/Documents/senior/cs138/s16-codyma-mgurule/raft'
-alias puddle='cd ~/Documents/senior/cs138/s16-codyma-mgurule/puddlestore'
+
+# quiet ssh
+alias ssh='ssh -q
 
 # Lock the screen
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-
-# Reload the shell
-alias reload='exec $SHELL -l'

@@ -1,30 +1,26 @@
 call plug#begin()
 
 " plugins
-Plug 'gmarik/vundle'
 Plug 'tpope/vim-surround'
 Plug 'rking/ag.vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'docunext/closetag.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Valloric/YouCompleteMe'
+Plug 'dsawardekar/ember.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " color schemes
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -40,11 +36,11 @@ filetype indent on
 " set encoding
 set encoding=utf-8
 
+" yank to system clipboard
+set clipboard=unnamed
+
 " syntax highlighting
 syntax enable
-
-" copy to system clipboard
-set clipboard=unnamed
 
 " no annoying error sound on errors
 set noerrorbells visualbell t_vb=
@@ -175,8 +171,8 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 " vertical split new window with <leader>v
 nnoremap <leader>v :vsp
 
-"clear highlighted search
-nmap <silent> ,/ :nohlsearch<CR>
+" fzf
+nnoremap <C-p> :FZF<CR>
 
 " set line numbering
 set number
@@ -185,19 +181,9 @@ set number
 set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""
-" Function Defn's                             "
-""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""
 " Coloring                                    "
 """""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
-
-" solarized settings
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
 
 " gruvbox settings
 let &t_ZH="\e[3m"
@@ -205,9 +191,6 @@ let &t_ZR="\e[23m"
 
 " select colorscheme
 colorscheme gruvbox
-
-" ctrlp binding
-let g:ctrlp_map = '<c-p>'
 
 " syntastic settings
 let g:syntastic_html_tidy_ignore_errors = [
@@ -226,8 +209,13 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" nerd commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
 
 " autocmds
 au FileType tex :NoMatchParen

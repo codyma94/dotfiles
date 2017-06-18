@@ -1,9 +1,9 @@
-if [ -f ~/.bash_profile ]; then
-  . ~/.bash_profile
+if [ -f ~/.env ]; then
+  . ~/.env
 fi
 
 if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
 
-
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

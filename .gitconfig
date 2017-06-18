@@ -1,14 +1,18 @@
 [user]
 	name = Cody Ma
 	email = cody_ma@brown.edu
+[log]
+  date = relative
+[format]
+  pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [alias]
-  a = add -A
   b = branch
-  ci = commit
+  branch-name = "!git rev-parse -abbrev-ref HEAD"
+  ca = commit --amend
 	co = checkout
-  last = log -l HEAD
-	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-  p = push
+  d = diff
+  l = log
+  publish = "!git push -u origin $(git branch-name)"
   s = status
 [core]
 	editor = vim
